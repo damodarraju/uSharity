@@ -1,0 +1,94 @@
+<div class="container-fluid">
+
+  <div style='text-align:center'>
+      <div class= "Image">
+        <a href="/Sharity.html">
+          <%= image_tag 'uSharity-4.png', alt: 'logo' %>
+        </a>
+      </div>
+
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <a href="http://ato.gov.au" target='_blank'>
+            <img src="img/Slider1.jpg" alt="slider1" style='margin: 0 32%;'>
+          </a>
+        </div>
+        <div class="item">
+          <a href="http://ato.gov.au" target='_blank'>
+            <img src="img/Slider-2.jpg" alt="slider2" style='margin: 0 32%;'>
+          </a>
+        </div>
+        <div class="item">
+          <a href="http://ato.gov.au" target='_blank'>
+            <img src="img/Slider-3.jpg" alt="slider3" style='margin: 0 32%;'>
+          </a>
+        </div>
+        <div class="item">
+          <a href="http://ato.gov.au" target='_blank'>
+            <img src="img/Slide-4.jpg" alt="slider4" style='margin: 0 32%;'>
+          </a>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+  <br/>
+  <div class="row" style='background: rgb(54, 25, 25); background: rgba(54, 25, 25, .5);'>
+    <div class="col-md-5 col-md-offset-4">
+      <h1 style='color:#fff'>Listing Charities</h1>
+      <table>
+        <!--
+          <thead>
+          <tr>
+          <th>Name</th>
+          </tr>
+          </thead>
+        -->
+
+        <tbody>
+          <% @charities.each do |charity| %>
+            <tr>
+              <td>
+                <% if charity.charity_website %>
+                  <a href=http://<%= charity.charity_website %> target='_blank' style='color: #fff; font-weight: bold;'>* <%= charity.charity_legal_name %></a>
+                <% else %>
+                  <%= charity.charity_legal_name %>
+                <% end %>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-text="I've donated this tweet to cause I believe in. Learn more here:" data-via="uSharityTweets" data-hashtags="DonateATweet">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <button class='btn btn-sm btn-default'>My Story</button>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+      <button class='btn btn-primary' onclick="location.reload();">Give me More!</button> |
+      <a href="/Sharity.html" style='color: #fff; font-weight: bold;'>Home</a>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
